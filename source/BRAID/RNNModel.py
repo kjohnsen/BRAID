@@ -17,6 +17,8 @@ import time
 import warnings
 from datetime import datetime
 
+os.environ["TF_USE_LEGACY_KERAS"] = "1"
+
 import tensorflow as tf
 
 try:

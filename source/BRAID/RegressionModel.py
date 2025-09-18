@@ -85,8 +85,11 @@ class RegressionModel(tf.keras.layers.Layer, ModelWithFitWithRetry, Reconstructa
         }
         super(RegressionModel, self).__init__(name=name)
         def ensure_is_list(v):
-            v = copy.deepcopy(v)
-            if 'ListWrapper' in str(type(v)):
+            if 'keras' in str(type(v)):
+                v = v.copy()
+            else:
+                v = copy.deepcopy(v)
+            if 'TrackedList' in str(type(v)) or 'ListWrapper' in str(type(v)):
                 v = list(v)
             if type(v) is tuple:
                 v = list(v)
@@ -240,7 +243,7 @@ class RegressionModel(tf.keras.layers.Layer, ModelWithFitWithRetry, Reconstructa
     def get_config(self):
         config = super(RegressionModel, self).get_config()
         initArgNames = ['n_in', 'n_out', 'units', 
-            'kernel_initializer', 'kernel_regularizer_name', 'kernel_regularizer_args'
+            'kernel_initializer', 'kernel_regularizer_name', 'kernel_regularizer_args',
             'use_bias', 'bias_regularizer_name', 'bias_regularizer_args', 
             'activation', 'output_activation',
             'num_classes', 'out_dist', 

@@ -17,6 +17,8 @@ import warnings
 from datetime import datetime
 from operator import itemgetter
 
+os.environ["TF_USE_LEGACY_KERAS"] = "1"
+
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
@@ -56,6 +58,7 @@ from .tools.tf_tools import convertHistoryToDict, set_global_tf_eagerly_flag
 from .tools.tools import get_one_hot, get_trials_from_cat_data, getIsOk, isFlat
 
 logger = logging.getLogger(__name__)
+
 
 def shift_ms_to_1s_series(Y, steps_ahead, missing_marker=None, time_first=True):
     """Shifts multi step ahead predictions of the RNNModel from

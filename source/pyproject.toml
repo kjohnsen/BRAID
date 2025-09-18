@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "BRAID"
+version = "2.0.0"
+dynamic = [
+    "description",
+    "readme",
+    "authors",
+    "classifiers",
+    "urls",
+    "requires-python",
+]
+dependencies = [
+    "tensorflow>=2.16",
+    "tf-keras",
+    "numpy",
+    "coloredlogs",
+    "tqdm",
+    "xxhash",
+    "sympy",
+    "ipython",
+    "ipykernel",
+    "matplotlib",
+    "scipy",
+    "scikit-learn",
+]
+license = { file = "LICENSE.md" }
