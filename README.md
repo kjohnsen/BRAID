@@ -1,3 +1,9 @@
+*This fork has the purpose of making this code compatible with updated dependencies, mainly TensorFlow >=2.16.
+I was able to achieve this by using the legacy Keras 2 (`tf-keras`) that was tightly integrated with TensorFlow.
+BRAID breaks with the newer Keras 3 (automatically used by TF>=2.16).
+I also untracked some files and made a `pyproject.toml` file so that `pip install ./source` will now automatically get dependencies.
+The exact environment I used (resolved by `uv`, and which I confirmed works with the tutorial file with Python 3.10.12) is frozen in an updated `requirements.txt`.*
+
 # Publication:
 This repository introduces and provides BRAID (**Behavioraly relevant Analysis of Intrinsic Dynamics**)
 
